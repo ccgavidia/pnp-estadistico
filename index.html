@@ -1,639 +1,940 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>BLACK EAGLE | Tactical Training Center</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
+<title>DELTA AMAZONAS | Polígono de Tiro</title>
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      scroll-behavior:smooth;
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    :root{
-      --gold:#d4af37;
-      --orange:#ff6b00;
-      --dark:#050505;
-      --gray:#101010;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    body{
-      background:var(--dark);
-      color:white;
-      font-family:'Inter',sans-serif;
-      overflow-x:hidden;
-    }
+<style>
 
-    nav{
-      position:fixed;
-      top:0;
-      width:100%;
-      z-index:999;
-      padding:20px 8%;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      background:rgba(0,0,0,.55);
-      backdrop-filter:blur(12px);
-      border-bottom:1px solid rgba(255,255,255,.05);
-    }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
 
-    .logo{
-      font-family:'Orbitron',sans-serif;
-      color:var(--gold);
-      font-size:1.6rem;
-      font-weight:900;
-      letter-spacing:3px;
-    }
+:root{
+  --gold:#d4af37;
+  --orange:#ff6b00;
+  --dark:#050505;
+  --gray:#101010;
+  --light:#d0d0d0;
+  --transition:.35s ease;
+}
 
-    nav ul{
-      display:flex;
-      gap:30px;
-      list-style:none;
-    }
+body{
+  background:var(--dark);
+  color:white;
+  font-family:'Inter',sans-serif;
+  overflow-x:hidden;
+}
 
-    nav a{
-      text-decoration:none;
-      color:white;
-      transition:.3s;
-      position:relative;
-      font-weight:500;
-    }
+/* ===== SCROLL ===== */
 
-    nav a::after{
-      content:'';
-      position:absolute;
-      left:0;
-      bottom:-8px;
-      width:0%;
-      height:2px;
-      background:linear-gradient(to right,var(--orange),var(--gold));
-      transition:.3s;
-    }
+::-webkit-scrollbar{
+  width:10px;
+}
 
-    nav a:hover::after{
-      width:100%;
-    }
+::-webkit-scrollbar-track{
+  background:#080808;
+}
 
-    nav a:hover{
-      color:var(--gold);
-    }
+::-webkit-scrollbar-thumb{
+  background:linear-gradient(var(--orange),var(--gold));
+  border-radius:20px;
+}
 
-    .hero{
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      padding:0 8%;
-      background:
-      linear-gradient(to right, rgba(0,0,0,.9), rgba(0,0,0,.45)),
-      url('https://images.unsplash.com/photo-1511884642898-4c92249e20b6?q=80&w=1900&auto=format&fit=crop') center/cover;
-      position:relative;
-    }
+/* ===== NAVBAR ===== */
 
-    .hero-content{
-      max-width:760px;
-      z-index:2;
-    }
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:999;
+  padding:18px 7%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(0,0,0,.6);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,.05);
+}
 
-    .badge{
-      display:inline-block;
-      padding:10px 18px;
-      border-radius:50px;
-      background:rgba(255,107,0,.12);
-      border:1px solid rgba(255,107,0,.25);
-      color:#ffb67d;
-      margin-bottom:25px;
-      font-size:.9rem;
-    }
+.logo-container{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
 
-    .hero h1{
-      font-size:5rem;
-      line-height:1.05;
-      font-family:'Orbitron',sans-serif;
-      margin-bottom:25px;
-    }
+.logo-container img{
+  width:60px;
+  height:60px;
+  object-fit:contain;
+  animation:floatLogo 4s ease-in-out infinite;
+  filter:drop-shadow(0 8px 18px rgba(255,107,0,.25));
+}
 
-    .hero h1 span{
-      background:linear-gradient(to right,var(--orange),var(--gold));
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-    }
+.logo-text{
+  display:flex;
+  flex-direction:column;
+  line-height:1;
+}
 
-    .hero p{
-      color:#cfcfcf;
-      line-height:1.9;
-      font-size:1.05rem;
-      max-width:650px;
-    }
+.logo-text span{
+  font-family:'Orbitron',sans-serif;
+  color:var(--gold);
+  font-size:1.2rem;
+  font-weight:900;
+  letter-spacing:2px;
+}
 
-    .hero-buttons{
-      margin-top:40px;
-      display:flex;
-      gap:20px;
-      flex-wrap:wrap;
-    }
+.logo-text small{
+  color:#d0d0d0;
+  letter-spacing:3px;
+  font-size:.72rem;
+}
 
-    .btn{
-      padding:16px 34px;
-      border-radius:12px;
-      text-decoration:none;
-      font-weight:700;
-      transition:.35s;
-      display:inline-block;
-    }
+.nav-links{
+  display:flex;
+  list-style:none;
+  gap:35px;
+}
 
-    .btn-primary{
-      background:linear-gradient(to right,var(--orange),var(--gold));
-      color:black;
-      box-shadow:0 10px 30px rgba(255,107,0,.3);
-    }
+.nav-links a{
+  text-decoration:none;
+  color:white;
+  transition:var(--transition);
+  position:relative;
+  font-weight:500;
+}
 
-    .btn-primary:hover{
-      transform:translateY(-5px);
-    }
+.nav-links a::after{
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:-8px;
+  width:0%;
+  height:2px;
+  background:linear-gradient(to right,var(--orange),var(--gold));
+  transition:var(--transition);
+}
 
-    .btn-outline{
-      border:1px solid rgba(255,255,255,.15);
-      color:white;
-    }
+.nav-links a:hover{
+  color:var(--gold);
+}
 
-    .btn-outline:hover{
-      background:white;
-      color:black;
-    }
+.nav-links a:hover::after{
+  width:100%;
+}
 
-    section{
-      padding:120px 8%;
-    }
+/* ===== MOBILE MENU ===== */
 
-    .section-title{
-      font-size:3rem;
-      margin-bottom:20px;
-      font-family:'Orbitron',sans-serif;
-    }
+.menu-btn{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  cursor:pointer;
+}
 
-    .section-title span{
-      background:linear-gradient(to right,var(--orange),var(--gold));
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-    }
+.menu-btn span{
+  width:28px;
+  height:3px;
+  background:white;
+  border-radius:20px;
+}
 
-    .section-text{
-      color:#bdbdbd;
-      max-width:800px;
-      line-height:1.9;
-      margin-bottom:60px;
-    }
+.mobile-menu{
+  position:fixed;
+  top:90px;
+  right:-100%;
+  width:280px;
+  height:100vh;
+  background:#0b0b0b;
+  z-index:998;
+  padding:40px 30px;
+  transition:.4s;
+}
 
-    .promo{
-      background:
-      linear-gradient(to right, rgba(255,107,0,.15), rgba(212,175,55,.12));
-      border:1px solid rgba(255,255,255,.08);
-      padding:35px;
-      border-radius:24px;
-      margin-top:40px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:20px;
-      flex-wrap:wrap;
-    }
+.mobile-menu.active{
+  right:0;
+}
 
-    .promo h3{
-      font-size:2rem;
-      color:var(--gold);
-      margin-bottom:10px;
-    }
+.mobile-menu ul{
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:25px;
+}
 
-    .promo p{
-      color:#d4d4d4;
-      line-height:1.8;
-      max-width:700px;
-    }
+.mobile-menu a{
+  color:white;
+  text-decoration:none;
+  font-size:1.1rem;
+}
 
-    .services{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-      gap:30px;
-      margin-top:50px;
-    }
+/* ===== HERO ===== */
 
-    .service-card{
-      background:linear-gradient(180deg,#161616,#0c0c0c);
-      border-radius:22px;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.05);
-      transition:.4s;
-    }
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  padding:120px 7% 80px;
+  background:
+  linear-gradient(to right, rgba(0,0,0,.92), rgba(0,0,0,.65)),
+  url('https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=1900&auto=format&fit=crop') center/cover;
+}
 
-    .service-card:hover{
-      transform:translateY(-12px);
-      border-color:rgba(255,107,0,.25);
-      box-shadow:0 25px 45px rgba(0,0,0,.5);
-    }
+.hero-content{
+  max-width:760px;
+}
 
-    .service-card img{
-      width:100%;
-      height:240px;
-      object-fit:cover;
-    }
+.badge{
+  display:inline-block;
+  padding:12px 20px;
+  border-radius:50px;
+  background:rgba(255,107,0,.12);
+  border:1px solid rgba(255,107,0,.25);
+  color:#ffbc88;
+  margin-bottom:28px;
+  font-size:.9rem;
+  animation:fadeUp .8s ease;
+}
 
-    .service-content{
-      padding:30px;
-    }
+.hero h1{
+  font-size:5rem;
+  line-height:1.05;
+  font-family:'Orbitron',sans-serif;
+  margin-bottom:25px;
+  animation:fadeUp 1s ease;
+}
 
-    .service-content h3{
-      color:var(--gold);
-      margin-bottom:15px;
-      font-size:1.5rem;
-    }
+.hero h1 span{
+  display:block;
+  background:linear-gradient(to right,var(--orange),var(--gold));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
 
-    .service-content p{
-      color:#c8c8c8;
-      line-height:1.8;
-    }
+.hero p{
+  color:var(--light);
+  line-height:1.9;
+  font-size:1.05rem;
+  max-width:650px;
+  animation:fadeUp 1.2s ease;
+}
 
-    .gallery{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-      gap:25px;
-      margin-top:50px;
-    }
+.hero-buttons{
+  margin-top:40px;
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+  animation:fadeUp 1.4s ease;
+}
 
-    .gallery img{
-      width:100%;
-      height:320px;
-      object-fit:cover;
-      border-radius:20px;
-      transition:.4s;
-    }
+/* ===== BUTTONS ===== */
 
-    .gallery img:hover{
-      transform:scale(1.03);
-    }
+.btn{
+  padding:16px 34px;
+  border-radius:14px;
+  text-decoration:none;
+  font-weight:700;
+  transition:var(--transition);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
 
-    .contact{
-      background:linear-gradient(180deg,#141414,#0b0b0b);
-      padding:70px;
-      border-radius:30px;
-      border:1px solid rgba(255,255,255,.05);
-    }
+.btn-primary{
+  background:linear-gradient(to right,var(--orange),var(--gold));
+  color:black;
+  box-shadow:0 10px 30px rgba(255,107,0,.25);
+}
 
-    .contact-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:50px;
-      align-items:center;
-    }
+.btn-primary:hover{
+  transform:translateY(-6px);
+}
 
-    .contact h3{
-      font-size:2.6rem;
-      margin-bottom:20px;
-      font-family:'Orbitron',sans-serif;
-    }
+.btn-outline{
+  border:1px solid rgba(255,255,255,.15);
+  color:white;
+}
 
-    .contact p{
-      color:#d0d0d0;
-      line-height:1.9;
-      margin-bottom:12px;
-    }
+.btn-outline:hover{
+  background:white;
+  color:black;
+}
 
-    form{
-      display:flex;
-      flex-direction:column;
-      gap:18px;
-    }
+/* ===== SECTIONS ===== */
 
-    input,
-    textarea{
-      background:#0d0d0d;
-      border:1px solid rgba(255,255,255,.08);
-      padding:18px;
-      border-radius:14px;
-      color:white;
-      font-family:'Inter',sans-serif;
-    }
+section{
+  padding:110px 7%;
+}
 
-    textarea{
-      resize:none;
-      min-height:140px;
-    }
+.section-title{
+  font-size:3rem;
+  margin-bottom:20px;
+  font-family:'Orbitron',sans-serif;
+}
 
-    footer{
-      text-align:center;
-      padding:40px;
-      color:#777;
-      border-top:1px solid rgba(255,255,255,.05);
-      margin-top:80px;
-    }
+.section-title span{
+  background:linear-gradient(to right,var(--orange),var(--gold));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
 
-    @media(max-width:1000px){
+.section-text{
+  max-width:800px;
+  color:#bdbdbd;
+  line-height:1.9;
+  margin-bottom:60px;
+}
 
-      nav ul{
-        display:none;
-      }
+/* ===== BENEFITS ===== */
 
-      .hero h1{
-        font-size:3.2rem;
-      }
+.stats{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:25px;
+}
 
-      .contact-grid{
-        grid-template-columns:1fr;
-      }
+.stat-card{
+  background:linear-gradient(180deg,#151515,#0a0a0a);
+  padding:35px;
+  border-radius:24px;
+  border:1px solid rgba(255,255,255,.05);
+  transition:var(--transition);
+}
 
-      .contact{
-        padding:40px;
-      }
+.stat-card:hover{
+  transform:translateY(-10px);
+  border-color:rgba(255,107,0,.25);
+}
 
-      .promo{
-        flex-direction:column;
-        align-items:flex-start;
-      }
-    }
+.stat-card h3{
+  font-size:2.5rem;
+  color:var(--gold);
+  margin-bottom:10px;
+}
 
-  </style>
+.stat-card p{
+  color:#cfcfcf;
+}
+
+.promo{
+  margin-top:50px;
+  padding:40px;
+  border-radius:28px;
+  background:
+  linear-gradient(to right, rgba(255,107,0,.12), rgba(212,175,55,.12));
+  border:1px solid rgba(255,255,255,.08);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:30px;
+  flex-wrap:wrap;
+}
+
+.promo h3{
+  font-size:2rem;
+  color:var(--gold);
+  margin-bottom:15px;
+}
+
+.promo p{
+  color:#d3d3d3;
+  line-height:1.8;
+  max-width:700px;
+}
+
+/* ===== SERVICES ===== */
+
+.services{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:30px;
+}
+
+.service-card{
+  background:linear-gradient(180deg,#161616,#0c0c0c);
+  border-radius:24px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.05);
+  transition:.4s;
+}
+
+.service-card:hover{
+  transform:translateY(-12px);
+  border-color:rgba(255,107,0,.25);
+  box-shadow:0 25px 45px rgba(0,0,0,.45);
+}
+
+.service-card img{
+  width:100%;
+  height:240px;
+  object-fit:cover;
+}
+
+.service-content{
+  padding:30px;
+}
+
+.service-content h3{
+  color:var(--gold);
+  font-size:1.4rem;
+  margin-bottom:15px;
+}
+
+.service-content p{
+  color:#c8c8c8;
+  line-height:1.8;
+}
+
+/* ===== ELITE ===== */
+
+.elite-box{
+  padding:70px;
+  border-radius:30px;
+  background:
+  linear-gradient(135deg,#101010,#1b1b1b);
+  border:1px solid rgba(255,255,255,.05);
+  text-align:center;
+}
+
+.elite-box h2{
+  font-size:3rem;
+  font-family:'Orbitron',sans-serif;
+  margin-bottom:20px;
+}
+
+.elite-box span{
+  background:linear-gradient(to right,var(--orange),var(--gold));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.elite-box p{
+  max-width:800px;
+  margin:auto;
+  color:#d0d0d0;
+  line-height:1.9;
+  margin-bottom:35px;
+}
+
+/* ===== GALLERY ===== */
+
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:25px;
+}
+
+.gallery img{
+  width:100%;
+  height:320px;
+  object-fit:cover;
+  border-radius:22px;
+  transition:.4s;
+}
+
+.gallery img:hover{
+  transform:scale(1.03);
+}
+
+/* ===== CONTACT ===== */
+
+.contact{
+  background:linear-gradient(180deg,#141414,#0b0b0b);
+  padding:60px;
+  border-radius:30px;
+  border:1px solid rgba(255,255,255,.05);
+}
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+  align-items:center;
+}
+
+.contact h3{
+  font-size:2.5rem;
+  margin-bottom:20px;
+  font-family:'Orbitron',sans-serif;
+}
+
+.contact p{
+  color:#d0d0d0;
+  line-height:1.9;
+  margin-bottom:12px;
+}
+
+form{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+input,
+textarea{
+  background:#0d0d0d;
+  border:1px solid rgba(255,255,255,.08);
+  padding:18px;
+  border-radius:14px;
+  color:white;
+  font-family:'Inter',sans-serif;
+  transition:var(--transition);
+}
+
+input:focus,
+textarea:focus{
+  outline:none;
+  border-color:var(--orange);
+}
+
+textarea{
+  resize:none;
+  min-height:150px;
+}
+
+/* ===== FOOTER ===== */
+
+footer{
+  text-align:center;
+  padding:40px;
+  color:#777;
+  border-top:1px solid rgba(255,255,255,.05);
+}
+
+/* ===== ANIMATIONS ===== */
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(30px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes floatLogo{
+
+  0%{
+    transform:translateY(0px);
+  }
+
+  50%{
+    transform:translateY(-5px);
+  }
+
+  100%{
+    transform:translateY(0px);
+  }
+
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media(max-width:1000px){
+
+  .nav-links{
+    display:none;
+  }
+
+  .menu-btn{
+    display:flex;
+  }
+
+  .hero h1{
+    font-size:3.5rem;
+  }
+
+  .contact-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+
+@media(max-width:768px){
+
+  section{
+    padding:90px 6%;
+  }
+
+  .hero{
+    text-align:center;
+  }
+
+  .hero-buttons{
+    justify-content:center;
+  }
+
+  .hero h1{
+    font-size:2.7rem;
+  }
+
+  .section-title{
+    font-size:2.2rem;
+  }
+
+  .elite-box{
+    padding:40px 25px;
+  }
+
+  .elite-box h2{
+    font-size:2rem;
+  }
+
+}
+
+@media(max-width:500px){
+
+  .hero h1{
+    font-size:2.2rem;
+  }
+
+  .btn{
+    width:100%;
+  }
+
+  .contact{
+    padding:30px 20px;
+  }
+
+}
+
+</style>
+
 </head>
 
 <body>
 
-  <nav>
+<!-- NAVBAR -->
 
-    <div class="logo">BLACK EAGLE</div>
+<nav>
 
-    <ul>
-      <li><a href="#inicio">Inicio</a></li>
-      <li><a href="#servicios">Servicios</a></li>
-      <li><a href="#beneficios">Beneficios</a></li>
-      <li><a href="#galeria">Galería</a></li>
-      <li><a href="#contacto">Contacto</a></li>
-    </ul>
+  <div class="logo-container">
 
-  </nav>
+    <img src="logo.png" alt="Delta Amazonas Logo">
 
-  <section class="hero" id="inicio">
-
-    <div class="hero-content">
-
-      <div class="badge">
-        ★ ENTRENAMIENTO • SEGURIDAD • PRECISIÓN
-      </div>
-
-      <h1>
-        DOMINA TU<br>
-        <span>PRECISIÓN</span>
-      </h1>
-
-      <p>
-        Centro profesional de entrenamiento táctico, práctica de tiro,
-        mantenimiento de armamento, gestión de permisos y asesoría especializada.
-        Vive una experiencia premium diseñada para quienes exigen seguridad,
-        disciplina y alto rendimiento.
-      </p>
-
-      <div class="hero-buttons">
-
-        <a href="#contacto" class="btn btn-primary">
-          RESERVAR AHORA
-        </a>
-
-        <a href="#servicios" class="btn btn-outline">
-          VER SERVICIOS
-        </a>
-
-      </div>
-
+    <div class="logo-text">
+      <span>DELTA</span>
+      <small>AMAZONAS</small>
     </div>
 
-  </section>
+  </div>
 
-  <section id="beneficios">
+  <ul class="nav-links">
+    <li><a href="#inicio">Inicio</a></li>
+    <li><a href="#beneficios">Beneficios</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#galeria">Galería</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
 
-    <h2 class="section-title">
-      BENEFICIOS <span>EXCLUSIVOS</span>
-    </h2>
+  <div class="menu-btn" id="menuBtn">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 
-    <p class="section-text">
-      Entrena con instructores especializados y accede a beneficios únicos
-      diseñados para personal policial y usuarios que buscan entrenamiento profesional.
+</nav>
+
+<!-- MOBILE MENU -->
+
+<div class="mobile-menu" id="mobileMenu">
+
+  <ul>
+    <li><a href="#inicio">Inicio</a></li>
+    <li><a href="#beneficios">Beneficios</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#galeria">Galería</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+
+</div>
+
+<!-- HERO -->
+
+<section class="hero" id="inicio">
+
+  <div class="hero-content">
+
+    <div class="badge">
+      ★ ENTRENAMIENTO • SEGURIDAD • PRECISIÓN
+    </div>
+
+    <h1>
+      DELTA
+      <span>AMAZONAS</span>
+    </h1>
+
+    <p>
+      Centro profesional de entrenamiento táctico y polígono de tiro
+      especializado en práctica, capacitación, seguridad y precisión operativa.
+      Vive una experiencia premium diseñada para personal policial,
+      seguridad privada y usuarios responsables.
     </p>
 
-    <div class="promo">
-
-      <div>
-
-        <h3>
-          10% DE DESCUENTO PARA POLICÍAS
-        </h3>
-
-        <p>
-          Beneficio especial para efectivos policiales y aspirantes que rendirán
-          examen este año. Accede a entrenamientos especializados, preparación táctica
-          y prácticas supervisadas con tarifas preferenciales.
-        </p>
-
-      </div>
+    <div class="hero-buttons">
 
       <a href="#contacto" class="btn btn-primary">
-        SOLICITAR BENEFICIO
+        RESERVAR AHORA
+      </a>
+
+      <a href="#servicios" class="btn btn-outline">
+        VER SERVICIOS
       </a>
 
     </div>
 
-  </section>
+  </div>
 
-  <section id="servicios">
+</section>
 
-    <h2 class="section-title">
-      NUESTROS <span>SERVICIOS</span>
+<!-- BENEFICIOS -->
+
+<section id="beneficios">
+
+  <h2 class="section-title">
+    BENEFICIOS <span>EXCLUSIVOS</span>
+  </h2>
+
+  <p class="section-text">
+    Entrena con instructores especializados y accede a beneficios únicos
+    diseñados para personal policial y usuarios que buscan entrenamiento profesional.
+  </p>
+
+  <div class="stats">
+
+    <div class="stat-card">
+      <h3>+5K</h3>
+      <p>Entrenamientos realizados</p>
+    </div>
+
+    <div class="stat-card">
+      <h3>98%</h3>
+      <p>Satisfacción de clientes</p>
+    </div>
+
+    <div class="stat-card">
+      <h3>24/7</h3>
+      <p>Asesoría especializada</p>
+    </div>
+
+    <div class="stat-card">
+      <h3>10%</h3>
+      <p>Descuento para policías</p>
+    </div>
+
+  </div>
+
+  <div class="promo">
+
+    <div>
+
+      <h3>
+        BENEFICIO ESPECIAL PARA POLICÍAS
+      </h3>
+
+      <p>
+        Accede a entrenamientos tácticos, preparación para exámenes,
+        prácticas supervisadas y asesoría especializada con tarifas preferenciales.
+      </p>
+
+    </div>
+
+    <a href="#contacto" class="btn btn-primary">
+      SOLICITAR BENEFICIO
+    </a>
+
+  </div>
+
+</section>
+
+<!-- SERVICIOS -->
+
+<section id="servicios">
+
+  <h2 class="section-title">
+    NUESTROS <span>SERVICIOS</span>
+  </h2>
+
+  <p class="section-text">
+    DELTA AMAZONAS ofrece soluciones completas para entrenamiento,
+    seguridad y soporte táctico especializado.
+  </p>
+
+  <div class="services">
+
+    <div class="service-card">
+
+      <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1200&auto=format&fit=crop">
+
+      <div class="service-content">
+        <h3>Práctica de Tiro</h3>
+        <p>
+          Entrenamiento táctico y deportivo en ambientes seguros y modernos.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="service-card">
+
+      <img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=1200&auto=format&fit=crop">
+
+      <div class="service-content">
+        <h3>Mantenimiento</h3>
+        <p>
+          Limpieza, calibración y mantenimiento profesional de armamento.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="service-card">
+
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop">
+
+      <div class="service-content">
+        <h3>Capacitación Táctica</h3>
+        <p>
+          Formación especializada para precisión, reacción y disciplina operativa.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ELITE -->
+
+<section>
+
+  <div class="elite-box">
+
+    <h2>
+      ENTRENAMIENTO
+      <span>ELITE</span>
     </h2>
 
-    <p class="section-text">
-      BLACK EAGLE ofrece soluciones completas para entrenamiento,
-      seguridad y soporte especializado en armamento.
+    <p>
+      Capacitación táctica profesional para civiles,
+      personal policial y seguridad privada.
+      Tecnología, precisión y disciplina en un solo lugar.
     </p>
 
-    <div class="services">
+    <a href="#contacto" class="btn btn-primary">
+      MÁS INFORMACIÓN
+    </a>
 
-      <div class="service-card">
+  </div>
 
-        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1200&auto=format&fit=crop">
+</section>
 
-        <div class="service-content">
+<!-- GALERIA -->
 
-          <h3>Práctica de Tiro</h3>
+<section id="galeria">
 
-          <p>
-            Entrenamiento táctico y deportivo en ambientes controlados,
-            modernos y completamente seguros.
-          </p>
+  <h2 class="section-title">
+    INSTALACIONES <span>PREMIUM</span>
+  </h2>
 
-        </div>
+  <p class="section-text">
+    Ambientes diseñados para brindar una experiencia profesional,
+    segura y de alto nivel.
+  </p>
 
-      </div>
+  <div class="gallery">
 
-      <div class="service-card">
+    <img src="https://images.unsplash.com/photo-1511884642898-4c92249e20b6?q=80&w=1400&auto=format&fit=crop">
 
-        <img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=1200&auto=format&fit=crop">
+    <img src="https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?q=80&w=1400&auto=format&fit=crop">
 
-        <div class="service-content">
+    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1400&auto=format&fit=crop">
 
-          <h3>Mantenimiento de Armamento</h3>
+  </div>
 
-          <p>
-            Limpieza, calibración, revisión y mantenimiento profesional
-            para garantizar precisión y funcionamiento óptimo.
-          </p>
+</section>
 
-        </div>
+<!-- CONTACTO -->
 
-      </div>
+<section id="contacto">
 
-      <div class="service-card">
+  <div class="contact">
 
-        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop">
+    <div class="contact-grid">
 
-        <div class="service-content">
+      <div>
 
-          <h3>Gestión de Permisos</h3>
+        <h3>
+          Reserva tu entrenamiento
+        </h3>
 
-          <p>
-            Asesoría y acompañamiento para trámites, documentación
-            y regularización de permisos correspondientes.
-          </p>
-
-        </div>
-
-      </div>
-
-      <div class="service-card">
-
-        <img src="https://images.unsplash.com/photo-1511884642898-4c92249e20b6?q=80&w=1200&auto=format&fit=crop">
-
-        <div class="service-content">
-
-          <h3>Capacitación Táctica</h3>
-
-          <p>
-            Formación especializada orientada a control, reacción,
-            precisión y disciplina operativa.
-          </p>
-
-        </div>
+        <p>📍 Amazonas - Perú</p>
+        <p>📞 +51 999 999 999</p>
+        <p>✉ contacto@deltaamazonas.pe</p>
+        <p>🕐 Lunes a Domingo | 8:00 AM - 8:00 PM</p>
 
       </div>
 
-      <div class="service-card">
+      <form>
 
-        <img src="https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?q=80&w=1200&auto=format&fit=crop">
+        <input type="text" placeholder="Nombre completo">
 
-        <div class="service-content">
+        <input type="email" placeholder="Correo electrónico">
 
-          <h3>Venta de Armamento</h3>
+        <input type="text" placeholder="Número de teléfono">
 
-          <p>
-            Atención personalizada y orientación profesional para adquisición
-            responsable de equipamiento autorizado según normativa vigente.
-          </p>
+        <textarea placeholder="Escribe tu consulta"></textarea>
 
-        </div>
+        <button class="btn btn-primary">
+          SOLICITAR INFORMACIÓN
+        </button>
 
-      </div>
-
-      <div class="service-card">
-
-        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1200&auto=format&fit=crop">
-
-        <div class="service-content">
-
-          <h3>Preparación para Exámenes</h3>
-
-          <p>
-            Entrenamiento intensivo para postulantes y personal policial
-            que requiera reforzar precisión y desempeño operativo.
-          </p>
-
-        </div>
-
-      </div>
+      </form>
 
     </div>
 
-  </section>
+  </div>
 
-  <section id="galeria">
+</section>
 
-    <h2 class="section-title">
-      INSTALACIONES <span>PREMIUM</span>
-    </h2>
+<footer>
+  © 2026 DELTA AMAZONAS | Polígono de Tiro
+</footer>
 
-    <p class="section-text">
-      Ambientes diseñados para brindar una experiencia profesional,
-      segura y de alto nivel.
-    </p>
+<script>
 
-    <div class="gallery">
+const menuBtn = document.getElementById('menuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
 
-      <img src="https://images.unsplash.com/photo-1511884642898-4c92249e20b6?q=80&w=1400&auto=format&fit=crop">
+menuBtn.addEventListener('click', () => {
+  mobileMenu.classList.toggle('active');
+});
 
-      <img src="https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?q=80&w=1400&auto=format&fit=crop">
+document.querySelectorAll('.mobile-menu a').forEach(link => {
 
-      <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1400&auto=format&fit=crop">
+  link.addEventListener('click', () => {
+    mobileMenu.classList.remove('active');
+  });
 
-    </div>
+});
 
-  </section>
-
-  <section id="contacto">
-
-    <div class="contact">
-
-      <div class="contact-grid">
-
-        <div>
-
-          <h3>
-            Reserva tu entrenamiento
-          </h3>
-
-          <p>📍 Amazonas - Perú</p>
-          <p>📞 +51 999 999 999</p>
-          <p>✉ contacto@blackeagle.pe</p>
-          <p>🕐 Lunes a Domingo | 8:00 AM - 8:00 PM</p>
-
-        </div>
-
-        <form>
-
-          <input type="text" placeholder="Nombre completo">
-
-          <input type="email" placeholder="Correo electrónico">
-
-          <input type="text" placeholder="Número de teléfono">
-
-          <textarea placeholder="Escribe tu consulta"></textarea>
-
-          <button class="btn btn-primary">
-            SOLICITAR INFORMACIÓN
-          </button>
-
-        </form>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <footer>
-    © 2026 BLACK EAGLE Tactical Training Center
-  </footer>
+</script>
 
 </body>
 </html>
