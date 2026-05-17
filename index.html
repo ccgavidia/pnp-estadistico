@@ -407,7 +407,79 @@
       margin: 10px 0;
     }
 
-    /* ── PAQUETES / PRICING (PSICOLOGÍA DE ANCLAJE) ── */
+    /* ── ASCENSO PNP / FFAA (NUEVA SECCIÓN DE ALTO IMPACTO) ── */
+    .ascenso-section {
+      background: var(--dark);
+      position: relative;
+    }
+    .ascenso-card {
+      background: url('https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?q=80&w=1200&auto=format&fit=crop') center/cover;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0,0,0,.6);
+      border: 1px solid rgba(251, 191, 36, 0.3);
+      margin-top: 30px;
+    }
+    .ascenso-overlay {
+      background: linear-gradient(90deg, rgba(15,23,42,0.98) 40%, rgba(15,23,42,0.8));
+      padding: 60px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 50px;
+      align-items: center;
+    }
+    .ascenso-badge {
+      display: inline-block;
+      background: var(--gold-bright);
+      color: black;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: .95rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 8px 18px;
+      border-radius: 4px;
+      margin-bottom: 20px;
+    }
+    .ascenso-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3.5rem;
+      color: white;
+      line-height: 1;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+    }
+    .ascenso-desc {
+      color: #cbd5e1;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 25px;
+    }
+    .ascenso-list {
+      list-style: none;
+      margin-bottom: 35px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .ascenso-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: white;
+      font-size: 1.05rem;
+    }
+    .ascenso-list li svg { width: 22px; fill: var(--success); flex-shrink: 0; }
+    .guarantee-badge {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 40px 30px;
+      border-radius: 12px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+
+    /* ── PAQUETES / PRICING ── */
     .pricing-section { background: var(--trust-navy); }
     .pricing-grid {
       display: grid;
@@ -415,7 +487,6 @@
       gap: 30px;
       align-items: center;
     }
-
     .price-card {
       background: var(--trust-navy-lt);
       border: 1px solid rgba(255,255,255,.05);
@@ -425,7 +496,6 @@
       transition: transform .3s, border-color .3s;
     }
     .price-card:hover { border-color: var(--gold-bright); transform: translateY(-10px); }
-    
     .price-card.popular {
       background: linear-gradient(180deg, rgba(255,85,0,.1), var(--trust-navy-lt));
       border: 2px solid var(--action);
@@ -434,7 +504,6 @@
       box-shadow: 0 20px 50px rgba(0,0,0,.5);
     }
     .price-card.popular:hover { transform: scale(1.05) translateY(-10px); }
-
     .popular-badge {
       position: absolute;
       top: -15px;
@@ -451,183 +520,79 @@
       text-transform: uppercase;
       box-shadow: 0 5px 15px rgba(255,85,0,.5);
     }
-
-    .pkg-name {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2.2rem;
-      color: var(--light);
-      margin-bottom: 5px;
-      letter-spacing: 1px;
-    }
+    .pkg-name { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; color: var(--light); margin-bottom: 5px; letter-spacing: 1px; }
     .pkg-desc { color: var(--muted); font-size: .9rem; margin-bottom: 24px; min-height: 40px;}
-    
     .pkg-price {
-      display: flex;
-      align-items: baseline;
-      gap: 5px;
-      margin-bottom: 30px;
-      padding-bottom: 30px;
+      display: flex; align-items: baseline; gap: 5px; margin-bottom: 30px; padding-bottom: 30px;
       border-bottom: 1px solid rgba(255,255,255,.05);
     }
     .pkg-price .currency { font-size: 1.5rem; font-weight: 700; color: var(--gold-bright); }
     .pkg-price .amount { font-family: 'Bebas Neue', sans-serif; font-size: 4rem; line-height: 1; color: var(--light); }
     .pkg-price .time { font-size: 1rem; color: var(--muted); }
-
     .pkg-features { list-style: none; margin-bottom: 40px; display: flex; flex-direction: column; gap: 16px; }
-    .pkg-features li {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      font-size: .95rem;
-      color: #E2E8F0;
-    }
+    .pkg-features li { display: flex; align-items: flex-start; gap: 12px; font-size: .95rem; color: #E2E8F0; }
     .pkg-features li svg { width: 18px; fill: var(--success); flex-shrink: 0; margin-top: 2px; }
-
     .btn-pkg {
-      display: block;
-      width: 100%;
-      text-align: center;
-      padding: 16px;
-      background: transparent;
-      border: 2px solid var(--action);
-      color: white;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 1.1rem;
-      font-weight: 800;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      border-radius: 6px;
-      transition: all .3s;
-      text-decoration: none;
+      display: block; width: 100%; text-align: center; padding: 16px; background: transparent;
+      border: 2px solid var(--action); color: white; font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.1rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;
+      border-radius: 6px; transition: all .3s; text-decoration: none;
     }
-    .btn-pkg:hover, .price-card.popular .btn-pkg {
-      background: var(--action);
-    }
+    .btn-pkg:hover, .price-card.popular .btn-pkg { background: var(--action); }
     .price-card.popular .btn-pkg:hover { background: var(--action-glow); border-color: var(--action-glow); }
 
     /* ── SERVICIOS ── */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
     .srv {
-      background: var(--trust-navy);
-      border: 1px solid rgba(255,255,255,.05);
-      border-radius: 12px;
-      padding: 40px 30px;
-      transition: all .3s;
+      background: var(--trust-navy); border: 1px solid rgba(255,255,255,.05); border-radius: 12px;
+      padding: 40px 30px; transition: all .3s;
     }
     .srv:hover { border-color: var(--action); transform: translateY(-5px); background: var(--trust-navy-lt);}
     .srv-icon { font-size: 2.5rem; margin-bottom: 20px; display: block; filter: grayscale(1); transition: filter .3s;}
     .srv:hover .srv-icon { filter: grayscale(0); }
-    
     .srv h3 {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 1.4rem;
-      font-weight: 800;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: var(--light);
-      margin-bottom: 12px;
+      font-family: 'Barlow Condensed', sans-serif; font-size: 1.4rem; font-weight: 800; letter-spacing: 1px;
+      text-transform: uppercase; color: var(--light); margin-bottom: 12px;
     }
     .srv p { color: var(--muted); font-size: .95rem; line-height: 1.7; }
 
-    /* ── CONTACT & FORM (Orientado a Conversión Final) ── */
+    /* ── CONTACT & FORM ── */
     .contact-section { background: var(--dark); }
-    .contact-wrap {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 60px;
-      align-items: center;
-    }
+    .contact-wrap { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: center; }
     .contact-info h2 { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; line-height: 1; margin-bottom: 20px;}
     .contact-info h2 span { color: var(--action); }
-    
     .guarantee-box {
-      background: rgba(16, 185, 129, 0.1);
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      padding: 20px;
-      border-radius: 8px;
-      display: flex;
-      gap: 15px;
-      margin-top: 40px;
+      background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); padding: 20px;
+      border-radius: 8px; display: flex; gap: 15px; margin-top: 40px;
     }
     .guarantee-box svg { width: 30px; fill: var(--success); flex-shrink: 0;}
     .guarantee-box p { font-size: .9rem; color: var(--light); margin:0; line-height: 1.5;}
     .guarantee-box p strong { display: block; font-family: 'Barlow Condensed'; font-size: 1.1rem; letter-spacing: 1px; margin-bottom: 4px;}
-
     .contact-form {
-      background: var(--trust-navy);
-      border: 1px solid rgba(255,255,255,.05);
-      border-top: 4px solid var(--action);
-      border-radius: 12px;
-      padding: 40px;
-      box-shadow: 0 20px 50px rgba(0,0,0,.4);
+      background: var(--trust-navy); border: 1px solid rgba(255,255,255,.05); border-top: 4px solid var(--action);
+      border-radius: 12px; padding: 40px; box-shadow: 0 20px 50px rgba(0,0,0,.4);
     }
-    .form-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2rem;
-      letter-spacing: 1px;
-      margin-bottom: 10px;
-      color: white;
-      text-align: center;
-    }
+    .form-title { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 1px; margin-bottom: 10px; color: white; text-align: center; }
     .form-subtitle { text-align: center; color: var(--muted); font-size: .95rem; margin-bottom: 30px;}
-    
     .form-group { margin-bottom: 20px; }
     .form-group label {
-      display: block;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: .9rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: #E2E8F0;
-      margin-bottom: 8px;
+      display: block; font-family: 'Barlow Condensed', sans-serif; font-size: .9rem; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase; color: #E2E8F0; margin-bottom: 8px;
     }
     .form-group input, .form-group select, .form-group textarea {
-      width: 100%;
-      background: rgba(0,0,0,.4);
-      border: 1px solid rgba(255,255,255,.15);
-      padding: 16px;
-      border-radius: 6px;
-      color: white;
-      font-family: 'Barlow', sans-serif;
-      font-size: 1rem;
-      transition: border .3s;
+      width: 100%; background: rgba(0,0,0,.4); border: 1px solid rgba(255,255,255,.15); padding: 16px;
+      border-radius: 6px; color: white; font-family: 'Barlow', sans-serif; font-size: 1rem; transition: border .3s;
     }
     .form-group textarea { resize: vertical; min-height: 80px; }
     .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--gold-bright); outline: none; }
     .form-group select option { background: var(--trust-navy); }
-    
     .btn-submit {
-      width: 100%;
-      padding: 20px;
-      background: var(--action);
-      color: white;
-      border: none;
-      border-radius: 6px;
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.6rem;
-      letter-spacing: 2px;
-      cursor: pointer;
-      transition: all .3s;
-      margin-top: 10px;
-      box-shadow: 0 5px 15px rgba(255,85,0,.4);
+      width: 100%; padding: 20px; background: var(--action); color: white; border: none; border-radius: 6px;
+      font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 2px; cursor: pointer;
+      transition: all .3s; margin-top: 10px; box-shadow: 0 5px 15px rgba(255,85,0,.4);
     }
     .btn-submit:hover { background: var(--action-glow); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(255,85,0,.6); }
-    
-    .secure-text {
-      text-align: center;
-      font-size: .85rem;
-      color: var(--muted);
-      margin-top: 15px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-    }
+    .secure-text { text-align: center; font-size: .85rem; color: var(--muted); margin-top: 15px; display: flex; align-items: center; justify-content: center; gap: 6px; }
 
     /* ── FOOTER ── */
     footer { background: #030303; padding: 60px 6% 30px; border-top: 1px solid rgba(255,255,255,.05); }
@@ -640,15 +605,16 @@
     /* ── FLOATING WHATSAPP ── */
     .wa-float {
       position: fixed; bottom: 30px; right: 30px; z-index: 999;
-      background: #25D366; color: white; width: 65px; height: 65px;
-      border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 8px 30px rgba(37,211,102,.4); transition: transform .3s; animation: pulse 2s infinite;
+      background: #25D366; color: white; width: 65px; height: 65px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 30px rgba(37,211,102,.4);
+      transition: transform .3s; animation: pulse 2s infinite;
     }
     .wa-float svg { width: 35px; height: 35px; fill: currentColor; }
     .wa-float:hover { transform: scale(1.1); animation: none; }
 
     @media (max-width:1024px) {
       .pricing-grid, .services-grid, .contact-wrap { grid-template-columns: 1fr; gap: 40px; }
+      .ascenso-overlay { grid-template-columns: 1fr; padding: 40px; }
       .price-card.popular { transform: none; }
       .price-card.popular:hover { transform: translateY(-10px); }
       nav ul { display: none; }
@@ -658,6 +624,8 @@
       .hero h1 { font-size: 4rem; }
       .btn-row { flex-direction: column; width: 100%; }
       .btn-fire { width: 100%; text-align: center; justify-content: center; }
+      .ascenso-overlay { padding: 30px 20px; }
+      .ascenso-title { font-size: 2.8rem; }
       .contact-form { padding: 30px 20px; }
       .game-ui-title { font-size: 3rem; }
       .game-container { height: 350px; }
@@ -686,6 +654,7 @@
     </a>
     <ul>
       <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#beneficios">PNP / Ascensos</a></li>
       <li><a href="#simulador">Simulador</a></li>
       <li><a href="#paquetes">Paquetes</a></li>
       <li><a href="#contacto">Contacto</a></li>
@@ -725,6 +694,60 @@
         <div class="micro-copy">
           <svg width="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
           <span>Sin tarjeta por adelantado.</span> Pagas directamente en el local.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ASCENSO PNP Y FFAA (NUEVA SECCIÓN DE ALTO IMPACTO) -->
+  <section class="ascenso-section" id="beneficios">
+    <div style="padding: 100px 6%; max-width: 1300px; margin: 0 auto;">
+      <div class="section-label" style="justify-content: center; margin-bottom: 20px;">Beneficios Exclusivos Fuerzas del Orden</div>
+      <h2 class="section-title" style="text-align: center; margin-bottom: 10px;">PROGRAMA PARA <span>ASCENSO PNP</span> Y FFAA</h2>
+      <p style="text-align: center; color: var(--muted); font-size: 1.1rem; max-width: 700px; margin: 0 auto 50px auto;">
+        Sabemos lo que está en juego. No confíes tu grado y tu futuro a la improvisación.
+      </p>
+
+      <div class="ascenso-card">
+        <div class="ascenso-overlay">
+          
+          <div>
+            <div class="ascenso-badge">🛡 PREPARACIÓN EXCLUSIVA Y DESCUENTOS</div>
+            <h3 class="ascenso-title">¿RINDES EXAMEN PARA EL <span style="color: var(--gold-bright);">GRADO INMEDIATO</span> ESTE AÑO?</h3>
+            <p class="ascenso-desc">
+              Si portas el uniforme, honramos tu servicio con una <strong>tarifa especial con descuento</strong>. Nuestro programa intensivo asegura que eleves tu puntaje de tiro y obtengas esa vacante. Nosotros te preparamos para ganar.
+            </p>
+            
+            <ul class="ascenso-list">
+              <li>
+                <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> 
+                <span><strong>Seguimiento estricto desde el Día 1:</strong> Controlamos tu progreso y métricas.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> 
+                <span><strong>Simulacros reales:</strong> Entrena bajo la misma presión y distancias del examen oficial.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> 
+                <span><strong>Corrección de postura y empuñadura:</strong> Eliminamos vicios de tiro desde la primera sesión.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> 
+                <span><strong>Instructores en retiro:</strong> Asesoramiento de personal que conoce la mesa de evaluación.</span>
+              </li>
+            </ul>
+
+            <a href="#contacto" class="btn-fire" style="padding: 15px 30px; font-size: 1.3rem; width: 100%;">QUIERO MI DESCUENTO Y PREPARARME AHORA</a>
+          </div>
+
+          <div class="guarantee-badge">
+            <div style="font-size: 4.5rem; margin-bottom: 10px; line-height: 1;">⭐</div>
+            <h4 style="font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; color: var(--gold-bright); margin-bottom: 12px; letter-spacing: 1px;">GARANTÍA DE PRECISIÓN</h4>
+            <p style="color: #cbd5e1; font-size: 1.05rem; line-height: 1.6;">
+              Monitoreamos cada impacto. Si sigues nuestra metodología y protocolo al pie de la letra, <strong>tus resultados en el examen real aumentarán de manera garantizada</strong>.
+            </p>
+          </div>
+
         </div>
       </div>
     </div>
@@ -879,6 +902,7 @@
               <option value="" disabled selected>Selecciona una opción...</option>
               <option value="pase_civil">Pase Civil / Básico (S/ 60)</option>
               <option value="pase_tactico">Pase Táctico (S/ 120) 🔥</option>
+              <option value="ascenso_pnp">Prep. Ascenso PNP / FFAA (Descuento) 👮‍♂️</option>
               <option value="membresia">Membresía VIP (S/ 250/mes)</option>
               <option value="tramite">Trámite de Licencia SUCAMEC</option>
             </select>
@@ -930,7 +954,7 @@
       });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.srv, .price-card').forEach(el => {
+    document.querySelectorAll('.srv, .price-card, .ascenso-card').forEach(el => {
       el.style.opacity = '0';
       el.style.transform = 'translateY(30px)';
       el.style.transition = 'opacity .6s ease, transform .6s ease';
